@@ -42,4 +42,11 @@ public class PassangerTest {
         Exception ex=assertThrows(IllegalArgumentException.class,()->{new Passanger("Mr","Pa","Flanagan");});
         assertEquals("Invalid first name length", ex.getMessage());
     }
+
+    @Test
+    void testShortLast()
+    {
+        Exception ex=assertThrows(IllegalArgumentException.class,()->{new Passanger("Mr","Patrick","Fl");});
+        assertEquals("Invalid last name length", ex.getMessage());
+    }
 }
