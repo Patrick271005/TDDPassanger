@@ -27,14 +27,19 @@ public class PassangerTest {
         assertEquals("Ms",myPass2.getTitle());
         Passanger myPass3 = new Passanger("Mrs","Aileen","Flanagan");
         assertEquals("Mrs",myPass3.getTitle());
-
-
     }
+
 
     @Test
     void testTitleFail()
     {
         // Mr,Mrs or Ms only
         assertThrows(IllegalArgumentException.class,()->{new Passanger("Dr","Patrick","Flanagan");});
+    }
+    @Test
+    void testShortFirst()
+    {
+        Exception ex=assertThrows(IllegalArgumentException.class,()->{new Passanger("Mr","Pa","Flanagan");});
+        assertEquals("Invalid first name length", ex.getMessage());
     }
 }
